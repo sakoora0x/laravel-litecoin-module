@@ -1,0 +1,17 @@
+services:
+    litecoin:
+        platform: linux/arm64
+        image: uphold/litecoin-core
+        build:
+            context: ./docker/litecoin
+            dockerfile: Dockerfile
+        command:
+            -printtoconsole
+        ports:
+            - "9332:9332"
+            - "9333:9333"
+            - "19332:19332"
+            - "19333:19333"
+            - "19444:19444"
+        volumes:
+            - ./.litecoin:/home/litecoin/.litecoin

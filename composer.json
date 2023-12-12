@@ -1,0 +1,42 @@
+{
+    "name": "mollsoft/laravel-litecoin-module",
+    "description": "Laravel Litecoin Module",
+    "homepage": "https://github.com/mollsoft/laravel-litecoin-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MollSoft",
+            "email": "info@mollsoft.com"
+        }
+    ],
+    "keywords": [
+        "mollsoft",
+        "laravel",
+        "litecoin",
+        "ltc"
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-decimal": "*",
+        "guzzlehttp/guzzle": "^7.2",
+        "illuminate/contracts": "^10.0",
+        "spatie/laravel-package-tools": "^1.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mollsoft\\LaravelLitecoinModule\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mollsoft\\LaravelLitecoinModule\\LitecoinServiceProvider"
+            ],
+            "aliases": {
+                "Litecoin": "Mollsoft\\LaravelLitecoinModule\\Facades\\Litecoin"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
