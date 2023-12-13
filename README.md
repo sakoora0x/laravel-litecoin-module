@@ -3,6 +3,7 @@
 Organization of payment acceptance and automation of payments of LTC coins on the Litecoin blockchain.
 
 ### Installation
+
 You can install the package via composer:
 ```bash
 composer require mollsoft/laravel-litecoin-module
@@ -29,4 +30,11 @@ Register Service Provider and Facade in app, edit `config/app.php`:
     ...,
     'Litecoin' => \Mollsoft\LaravelLitecoinModule\Facades\Litecoin::class,
 ])->toArray(),
+```
+
+Add cron job, in file `app/Console/Kernel` in method `schedule(Schedule $schedule)` add
+```
+$schedule->command('litecoin:sync')
+    ->everyMinute()
+    ->runInBackground();
 ```

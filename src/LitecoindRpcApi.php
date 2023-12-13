@@ -47,7 +47,7 @@ class LitecoindRpcApi
         }
 
         if( $body['error'] ?? false ) {
-            throw new \Exception('Litecoind '.$body['error']['code'].' - '.$body['error']['message']);
+            throw new \Exception('Litecoind '.$method.' '.$body['error']['code'].' - '.$body['error']['message']);
         }
 
         return isset( $body['result'] ) && is_array($body['result']) ? $body['result'] : $body;

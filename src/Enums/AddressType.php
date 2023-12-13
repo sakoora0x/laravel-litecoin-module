@@ -5,9 +5,8 @@ namespace Mollsoft\LaravelLitecoinModule\Enums;
 enum AddressType: string
 {
     case LEGACY = 'legacy';
-    case P2SH_SEGWIT = 'p2wpkh-p2sh';
+    case P2SH_SEGWIT = 'p2sh-segwit';
     case BECH32 = 'bech32';
-    case BECH32M = 'bech32m';
 
     public static function values(): array
     {

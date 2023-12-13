@@ -3,6 +3,7 @@
 namespace Mollsoft\LaravelLitecoinModule;
 
 use Decimal\Decimal;
+use Illuminate\Support\Facades\Date;
 use Mollsoft\LaravelLitecoinModule\Models\LitecoinAddress;
 use Mollsoft\LaravelLitecoinModule\Enums\AddressType;
 use Mollsoft\LaravelLitecoinModule\Models\LitecoinNode;
@@ -58,15 +59,10 @@ class Litecoin
             ], $name);
         }
 
-        $descriptors = $api->request('listdescriptors', [
-            'private' => true,
-        ], $name)['descriptors'];
-
         $wallet = $node->wallets()->create([
             'name' => $name,
             'title' => $title,
             'password' => $password,
-            'descriptors' => $descriptors,
         ]);
 
         $this->createAddress($wallet, null, 'Primary Address');
@@ -181,7 +177,7 @@ class Litecoin
         }
 
         if ($validateAddress['iswitness'] ?? false) {
-            return ($validateAddress['witness_version'] ?? false) ? AddressType::BECH32M : AddressType::BECH32;
+            return  AddressType::BECH32;
         }
         if ($validateAddress['isscript'] ?? false) {
             return AddressType::P2SH_SEGWIT;
@@ -201,20 +197,10 @@ class Litecoin
             ], $wallet->name);
         }
 
-        $sendAll = $api->request('sendall', [
-            'recipients' => [$address],
-            'estimate_mode' => $feeRate ? 'unset' : 'economical',
-            'fee_rate' => $feeRate,
-            'options' => [
-                'send_max' => true,
-            ]
-        ], $wallet->name);
+        $getBalances = $api->request('getbalances', [], $wallet->name);
+        $balance = new Decimal((string)$getBalances['mine']['trusted'], 8);
 
-        if (!($sendAll['complete'] ?? false)) {
-            throw new \Exception(json_encode($sendAll));
-        }
-
-        return $sendAll['txid'];
+        return $this->send($wallet, $address, $balance, $feeRate, true);
     }
 
     public function send(
@@ -245,10 +231,10 @@ class Litecoin
             'fee_rate' => $feeRate
         ], $wallet->name);
 
-        if (!($sendToAddress['txid'] ?? false)) {
+        if (!is_string($sendToAddress['result'])) {
             throw new \Exception(json_encode($sendToAddress));
         }
 
-        return $sendToAddress['txid'];
+        return $sendToAddress['result'];
     }
 }

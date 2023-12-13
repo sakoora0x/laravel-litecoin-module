@@ -2,6 +2,9 @@
 
 namespace Mollsoft\LaravelLitecoinModule;
 
+use Mollsoft\LaravelLitecoinModule\Commands\LitecoinSyncCommand;
+use Mollsoft\LaravelLitecoinModule\Commands\LitecoinSyncWalletCommand;
+use Mollsoft\LaravelLitecoinModule\Commands\LitecoinWebhookCommand;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -20,7 +23,11 @@ class LitecoinServiceProvider extends PackageServiceProvider
                 'create_litecoin_deposits_table',
             ])
             ->runsMigrations()
-            ->hasCommands()
+            ->hasCommands([
+                LitecoinSyncWalletCommand::class,
+                LitecoinSyncCommand::class,
+                LitecoinWebhookCommand::class,
+            ])
             ->hasInstallCommand(function(InstallCommand $command) {
                 $command
                     ->publishConfigFile()
