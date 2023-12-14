@@ -22,7 +22,6 @@ class LitecoinServiceProvider extends PackageServiceProvider
                 'create_litecoin_addresses_table',
                 'create_litecoin_deposits_table',
             ])
-            ->runsMigrations()
             ->hasCommands([
                 LitecoinSyncWalletCommand::class,
                 LitecoinSyncCommand::class,
