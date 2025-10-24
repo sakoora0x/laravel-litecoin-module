@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinAddress;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinWallet;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinAddress;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinWallet;
 
 return new class extends Migration {
     public function up(): void
@@ -21,8 +21,10 @@ return new class extends Migration {
             $table->decimal('amount', 20, 8);
             $table->unsignedInteger('block_height')
                 ->nullable();
-            $table->integer('confirmations');
-            $table->timestamp('time_at');
+            $table->integer('confirmations')
+                ->default(0);
+            $table->timestamp('time_at')
+                ->nullable();
             $table->timestamps();
 
             $table->unique(['address_id', 'txid'], 'unique_index');

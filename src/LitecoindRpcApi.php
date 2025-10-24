@@ -1,6 +1,6 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule;
+namespace sakoora0x\LaravelLitecoinModule;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Str;

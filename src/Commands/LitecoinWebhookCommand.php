@@ -1,11 +1,11 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule\Commands;
+namespace sakoora0x\LaravelLitecoinModule\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinDeposit;
-use Mollsoft\LaravelLitecoinModule\WebhookHandlers\WebhookHandlerInterface;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinDeposit;
+use sakoora0x\LaravelLitecoinModule\WebhookHandlers\WebhookHandlerInterface;
 
 class LitecoinWebhookCommand extends Command
 {

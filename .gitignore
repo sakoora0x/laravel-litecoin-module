@@ -14,3 +14,7 @@ yarn-error.log
 /.vscode
 .DS_Store
 **/.DS_Store
+/coverage
+/.pest
+/build
+composer.lock

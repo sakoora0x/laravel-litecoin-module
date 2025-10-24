@@ -1,11 +1,11 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule\Commands;
+namespace sakoora0x\LaravelLitecoinModule\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinWallet;
-use Mollsoft\LaravelLitecoinModule\Services\SyncService;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinWallet;
+use sakoora0x\LaravelLitecoinModule\Services\SyncService;
 
 class LitecoinSyncWalletCommand extends Command
 {

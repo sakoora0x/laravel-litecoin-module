@@ -1,14 +1,14 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule\Services;
+namespace sakoora0x\LaravelLitecoinModule\Services;
 
 use Decimal\Decimal;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Log;
-use Mollsoft\LaravelLitecoinModule\LitecoindRpcApi;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinWallet;
-use Mollsoft\LaravelLitecoinModule\WebhookHandlers\WebhookHandlerInterface;
+use sakoora0x\LaravelLitecoinModule\LitecoindRpcApi;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinWallet;
+use sakoora0x\LaravelLitecoinModule\WebhookHandlers\WebhookHandlerInterface;
 
 class SyncService
 {

@@ -1,39 +1,70 @@
 {
-    "name": "mollsoft/laravel-litecoin-module",
+    "name": "sakoora0x/laravel-litecoin-module",
     "description": "Laravel Litecoin Module",
-    "homepage": "https://github.com/mollsoft/laravel-litecoin-module",
+    "homepage": "https://github.com/sakoora0x/laravel-litecoin-module",
     "license": "MIT",
     "authors": [
+        {
+            "name": "sakoora0x",
+            "email": "sakoora0x@gmail.com"
+        },
         {
             "name": "MollSoft",
             "email": "info@mollsoft.com"
         }
     ],
     "keywords": [
-        "mollsoft",
+        "sakoora0x",
         "laravel",
         "litecoin",
         "ltc"
     ],
     "require": {
         "php": "^8.2",
-        "ext-decimal": "*",
+        "brick/math": "^0.12",
         "guzzlehttp/guzzle": "^7.2",
-        "illuminate/contracts": "^10.0",
-        "spatie/laravel-package-tools": "^1.15"
+        "illuminate/contracts": "^11.0|^12.0",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "suggest": {
+        "ext-decimal": "For better performance with decimal calculations",
+        "ext-bcmath": "Required for arbitrary precision mathematics (usually enabled by default)",
+        "ext-gmp": "For better performance with large number calculations (usually enabled by default)"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "phpunit/phpunit": "^11.0",
+        "mockery/mockery": "^1.6"
     },
     "autoload": {
         "psr-4": {
-            "Mollsoft\\LaravelLitecoinModule\\": "src/"
+            "sakoora0x\\LaravelLitecoinModule\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "sakoora0x\\LaravelLitecoinModule\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Mollsoft\\LaravelLitecoinModule\\LitecoinServiceProvider"
+                "sakoora0x\\LaravelLitecoinModule\\LitecoinServiceProvider"
             ],
             "aliases": {
-                "Litecoin": "Mollsoft\\LaravelLitecoinModule\\Facades\\Litecoin"
+                "Litecoin": "sakoora0x\\LaravelLitecoinModule\\Facades\\Litecoin"
             }
         }
     },

@@ -1,13 +1,13 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule;
+namespace sakoora0x\LaravelLitecoinModule;
 
-use Decimal\Decimal;
+use sakoora0x\LaravelLitecoinModule\Support\DecimalNumber;
 use Illuminate\Support\Facades\Date;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinAddress;
-use Mollsoft\LaravelLitecoinModule\Enums\AddressType;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinNode;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinWallet;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinAddress;
+use sakoora0x\LaravelLitecoinModule\Enums\AddressType;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinNode;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinWallet;
 
 class Litecoin
 {
@@ -198,7 +198,7 @@ class Litecoin
         }
 
         $getBalances = $api->request('getbalances', [], $wallet->name);
-        $balance = new Decimal((string)$getBalances['mine']['trusted'], 8);
+        $balance = new DecimalNumber((string)$getBalances['mine']['trusted'], 8);
 
         return $this->send($wallet, $address, $balance, $feeRate, true);
     }
@@ -212,8 +212,8 @@ class Litecoin
     ): string {
         $api = $wallet->node->api();
 
-        if (($amount instanceof Decimal)) {
-            $amount = new Decimal((string)$amount, 8);
+        if (($amount instanceof DecimalNumber)) {
+            $amount = new DecimalNumber((string)$amount, 8);
         }
 
         if ($wallet->password) {

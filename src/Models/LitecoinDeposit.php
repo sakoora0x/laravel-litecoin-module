@@ -1,10 +1,10 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule\Models;
+namespace sakoora0x\LaravelLitecoinModule\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Mollsoft\LaravelLitecoinModule\Casts\DecimalCast;
+use sakoora0x\LaravelLitecoinModule\Casts\DecimalCast;
 
 class LitecoinDeposit extends Model
 {

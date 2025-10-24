@@ -1,10 +1,10 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule\Models;
+namespace sakoora0x\LaravelLitecoinModule\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Mollsoft\LaravelLitecoinModule\LitecoindRpcApi;
+use sakoora0x\LaravelLitecoinModule\LitecoindRpcApi;
 
 class LitecoinNode extends Model
 {

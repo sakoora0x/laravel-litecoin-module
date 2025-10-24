@@ -1,6 +1,6 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule\Enums;
+namespace sakoora0x\LaravelLitecoinModule\Enums;
 
 enum AddressType: string
 {

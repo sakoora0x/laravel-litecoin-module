@@ -1,10 +1,10 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule;
+namespace sakoora0x\LaravelLitecoinModule;
 
-use Mollsoft\LaravelLitecoinModule\Commands\LitecoinSyncCommand;
-use Mollsoft\LaravelLitecoinModule\Commands\LitecoinSyncWalletCommand;
-use Mollsoft\LaravelLitecoinModule\Commands\LitecoinWebhookCommand;
+use sakoora0x\LaravelLitecoinModule\Commands\LitecoinSyncCommand;
+use sakoora0x\LaravelLitecoinModule\Commands\LitecoinSyncWalletCommand;
+use sakoora0x\LaravelLitecoinModule\Commands\LitecoinWebhookCommand;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -27,12 +27,15 @@ class LitecoinServiceProvider extends PackageServiceProvider
                 LitecoinSyncCommand::class,
                 LitecoinWebhookCommand::class,
             ])
-            ->hasInstallCommand(function(InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
                     ->publishMigrations();
-            });;
+            });
+    }
 
+    public function packageRegistered(): void
+    {
         $this->app->singleton(Litecoin::class);
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Mollsoft\LaravelLitecoinModule\WebhookHandlers;
+namespace sakoora0x\LaravelLitecoinModule\WebhookHandlers;
 
 use Illuminate\Support\Facades\Log;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinAddress;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinDeposit;
-use Mollsoft\LaravelLitecoinModule\Models\LitecoinWallet;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinAddress;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinDeposit;
+use sakoora0x\LaravelLitecoinModule\Models\LitecoinWallet;
 
 class EmptyWebhookHandler implements WebhookHandlerInterface
 {
